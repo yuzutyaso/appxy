@@ -1,0 +1,255 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  box-sizing: border-box;
+  min-height: 500px; /* ある程度の高さを確保 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-container, .dashboard-container, .chat-container {
+  flex-grow: 1; /* 親コンテナの残りスペースを埋める */
+  display: flex;
+  flex-direction: column;
+}
+
+
+h1, h2, h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+  width: 100%; /* ボタン幅を100%に設定 */
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  width: auto; /* ボタン幅を自動に */
+  float: right;
+  margin-top: -50px; /* タイトルとの位置調整 */
+  margin-right: 0;
+  padding: 8px 12px;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.error-message {
+  color: #dc3545;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.search-form input {
+  flex-grow: 1;
+}
+
+.search-form button {
+  width: auto; /* 検索ボタンの幅を自動に */
+}
+
+.search-result {
+  background-color: #e9ecef;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.search-result button {
+  width: auto; /* 検索結果のボタン幅を自動に */
+  padding: 5px 10px;
+  font-size: 0.9em;
+}
+
+.friend-list {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 200px; /* 友達リストの最大高さを設定 */
+}
+
+.friend-list li {
+  background-color: #f8f9fa;
+  border: 1px solid #e2e6ea;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.friend-list li:hover {
+  background-color: #e9ecef;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.back-button {
+  background-color: #6c757d;
+  width: auto;
+  padding: 8px 12px;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}
+
+.chat-header h2 {
+    margin: 0;
+    flex-grow: 1;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.message-list {
+  border: 1px solid #ddd;
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-bubble {
+  padding: 8px 12px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.message-bubble.sent {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+}
+
+.message-bubble.received {
+  background-color: #e0e0e0;
+  align-self: flex-start;
+}
+
+.message-bubble p {
+  margin: 0;
+}
+
+.message-bubble .timestamp {
+  font-size: 0.7em;
+  color: #888;
+  display: block;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.message-input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: auto; /* 一番下に配置 */
+}
+
+.message-input-area input {
+  flex-grow: 1;
+}
+
+.message-input-area button {
+  width: auto;
+}
+
+.loading-screen {
+  text-align: center;
+  font-size: 1.5em;
+  color: #555;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-auth {
+  text-align: center;
+  margin-top: 20px;
+  color: #555;
+}
+
+.toggle-auth span {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
